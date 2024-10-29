@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CamController : MonoBehaviour
 {
-    public ballController ball;
+    public BallController ball;
 
     private float offset;
     void Start()

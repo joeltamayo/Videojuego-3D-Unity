@@ -29,9 +29,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Pasaste de nivel");
     }
 
-    public void RestartLvel()
+    public void RestartLevel()
     {
-
+        Debug.Log("Restart");
+        singleton.currentScore = 0;
+        FindObjectOfType<BallController>().ResetBall();
     }
 
     public void AddScore(int scoreToAdd)
