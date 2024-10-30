@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public int bestScore;
     public int currentScore = 0;
 
-    public float currenLevel = 0;
+    public int currentLevel = 0;
 
     public static GameManager singleton;
     void Awake()
@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
+        currentLevel++;
+        FindObjectOfType<BallController>().ResetBall();
+        FindObjectOfType<HelixContoller>().LoadStage(currentLevel);
         Debug.Log("Pasaste de nivel");
     }
 
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Restart");
         singleton.currentScore = 0;
         FindObjectOfType<BallController>().ResetBall();
+        FindObjectOfType<HelixContoller>().LoadStage(currentLevel);
     }
 
     public void AddScore(int scoreToAdd)

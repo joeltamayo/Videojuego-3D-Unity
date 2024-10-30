@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b898fd4e83053949891f2fe55064d36, type: 3}
-  m_Name: Stage0
+  m_Name: Stage2
   m_EditorClassIdentifier: 
   stageBackgroundColor: {r: 1, g: 0.5150526, b: 0.26274514, a: 1}
   stageLevelPartColor: {r: 0.6330567, g: 1, b: 0.45490193, a: 1}

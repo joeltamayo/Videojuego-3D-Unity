@@ -111,7 +111,7 @@ public class HelixContoller : MonoBehaviour
             List<GameObject> deathParts = new List<GameObject>();
             while (deathParts.Count < stage.levels[i].deathPartCount)
             {
-                //GameObject ramdomPart = leftParts[(UnityEngine.Random.Range(0, leftParts.Count))];
+                GameObject ramdomPart = leftParts[(UnityEngine.Random.Range(0, leftParts.Count))];
 
                 if(!deathParts.Contains(ramdomPart))
                 {
