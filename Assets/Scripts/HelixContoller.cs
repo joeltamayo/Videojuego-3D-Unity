@@ -86,7 +86,7 @@ public class HelixContoller : MonoBehaviour
 
             List<GameObject> disabledParts = new List<GameObject>();
 
-            while (disabledParts.Count  < partsToDisable)
+            while (disabledParts.Count < partsToDisable)
             {
                 GameObject randomPart = level.transform.GetChild(UnityEngine.Random.Range(0, level.transform.childCount)).gameObject;
 
