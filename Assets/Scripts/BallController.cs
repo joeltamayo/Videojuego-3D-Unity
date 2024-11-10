@@ -65,9 +65,9 @@ public class BallController : MonoBehaviour
             isSuperSpeedActive = true;
             rb.AddForce(Vector3.down*superSpeed, ForceMode.Impulse);
         }
-        Debug.Log("Perfec pass:" + perfectPass);
-        Debug.Log("Super sped active:" + isSuperSpeedActive);
-        Debug.Log("Super spass count:" + perfectPassCount);
+        //Debug.Log("Perfec pass:" + perfectPass);
+        //Debug.Log("Super sped active:" + isSuperSpeedActive);
+        //Debug.Log("Super spass count:" + perfectPassCount);
 
     }
 
