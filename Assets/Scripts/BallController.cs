@@ -4,6 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UIElements;
+using UnityEngine.Audio;
+
 
 public class BallController : MonoBehaviour
 {
@@ -24,6 +26,8 @@ public class BallController : MonoBehaviour
 
     public GameObject splash;
 
+    public AudioSource collisionAudio;
+
     private void Start()
     {
         startPosition = transform.position;
@@ -31,6 +35,7 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        collisionAudio.Play();
 
         addSplash(collision);
 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,11 @@ public class GameManager : MonoBehaviour
     public int currentLevel = 0;
 
     public static GameManager singleton;
+
+    public AudioSource winAudio;
+
+    public Text textPlus1;
+
     void Awake()
     {
         if (singleton == null)
@@ -26,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
+        winAudio.Play();
+
         currentLevel++;
         FindObjectOfType<BallController>().ResetBall();
         FindObjectOfType<HelixContoller>().LoadStage(currentLevel);
@@ -34,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        Debug.Log("Restart");
+        //Debug.Log("Restart");
         singleton.currentScore = 0;
         FindObjectOfType<BallController>().ResetBall();
         FindObjectOfType<HelixContoller>().LoadStage(currentLevel);
@@ -42,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int scoreToAdd)
     {
+        textPlus1.GetComponent<Animation>().Play();
+
         currentScore += scoreToAdd;
 
         if (currentScore > bestScore)
