@@ -27,6 +27,11 @@ public class BallController : MonoBehaviour
     public GameObject splash;
 
     public AudioSource collisionAudio;
+    public AudioSource loseAudio; 
+    public AudioSource breakAudio;
+    public AudioSource fastAudio;
+
+
 
     private void Start()
     {
@@ -46,6 +51,7 @@ public class BallController : MonoBehaviour
 
         if (isSuperSpeedActive && !collision.transform.GetComponent<GoalController>())
         {
+            breakAudio.Play();
             Destroy(collision.transform.parent.gameObject, 0.2f);
         }
         else
@@ -53,6 +59,7 @@ public class BallController : MonoBehaviour
             DeathPart deathPart = collision.transform.GetComponent<DeathPart>();
             if (deathPart)
             {
+                loseAudio.Play();
                 GameManager.singleton.RestartLevel();
             }
         }
@@ -72,6 +79,7 @@ public class BallController : MonoBehaviour
     {
         if (perfectPass >= perfectPassCount && !isSuperSpeedActive)
         {
+            fastAudio.Play();
             isSuperSpeedActive = true;
             rb.AddForce(Vector3.down * superSpeed, ForceMode.Impulse);
         }
