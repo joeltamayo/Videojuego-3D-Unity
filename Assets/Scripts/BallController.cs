@@ -27,7 +27,7 @@ public class BallController : MonoBehaviour
     public GameObject splash;
 
     public AudioSource collisionAudio;
-    public AudioSource loseAudio; 
+    public AudioSource loseAudio;
     public AudioSource breakAudio;
     public AudioSource fastAudio;
 
@@ -101,13 +101,36 @@ public class BallController : MonoBehaviour
 
     public void addSplash(Collision collision)
     {
-        GameObject newSplash;
+        // Instancia el prefab del splash
+        GameObject newSplash = Instantiate(splash);
 
-        newSplash = Instantiate(splash);
-
+        // Establece el splash como hijo de la plataforma donde ocurre la colisión
         newSplash.transform.SetParent(collision.transform);
 
-        newSplash.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.11f, this.transform.position.z);
+        // Ajusta la posición del splash
+        newSplash.transform.position = new Vector3(
+            this.transform.position.x,
+            this.transform.position.y - 0.11f,
+            this.transform.position.z
+        );
+
+        // Cambia el color del splash para que coincida con el material de la bola
+        Renderer ballRenderer = GetComponent<Renderer>(); // Obtiene el Renderer de la bola
+        SpriteRenderer splashRenderer = newSplash.GetComponent<SpriteRenderer>(); // Obtiene el Sprite Renderer del splash
+
+        if (ballRenderer != null && splashRenderer != null)
+        {
+            // Verifica si el material de la bola tiene una propiedad "_Color"
+            if (ballRenderer.material.HasProperty("_Color"))
+            {
+                // Asigna el color del material de la bola al color del splash
+                splashRenderer.color = ballRenderer.material.color;
+            }
+        }
+
+        // Destruye el splash después de 3 segundos
         Destroy(newSplash, 3);
     }
+
+
 }

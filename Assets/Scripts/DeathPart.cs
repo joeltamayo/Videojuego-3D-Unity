@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class DeathPart : MonoBehaviour
 {
-    private void OnEnable()
+    
+    public string hexColor = "#FF4500"; // Ejemplo: un tono naranja
+        private void OnEnable()
     {
-        GetComponent<Renderer>().material.color = Color.red;
+        // Variable para almacenar el objeto Color 
+        Color newColor;
+        ColorUtility.TryParseHtmlString(hexColor, out newColor);
+        GetComponent<Renderer>().material.color = newColor;
     }
 }

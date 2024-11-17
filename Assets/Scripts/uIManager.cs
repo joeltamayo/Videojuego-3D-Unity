@@ -23,8 +23,8 @@ public class uIManager : MonoBehaviour
 
     void Update()
     {
-        currentScoreText.text = "Score: " + GameManager.singleton.currentScore;
-        bestScoreText.text = "Best: " + GameManager.singleton.bestScore;
+        currentScoreText.text = "Puntos: " + GameManager.singleton.currentScore;
+        bestScoreText.text = "Record: " + GameManager.singleton.bestScore;
 
         ChangeSliderLvelProgress();
     }
